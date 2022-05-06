@@ -23,7 +23,7 @@ docker pull "$($sitecoreDockerRegistry)sitecore-xmcloud-cm:$($sitecoreVersion)"
 
 # Build all containers in the Sitecore instance, forcing a pull of latest base containers
 Write-Host "Building containers..." -ForegroundColor Green
-docker-compose build
+docker-compose build --no-cache
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Container build failed, see errors above."
 }
